@@ -1,0 +1,6 @@
+[confluent-2.0]
+name=Confluent repository for 2.0.x packages
+baseurl=http://packages.confluent.io/rpm/2.0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-confluent
+enabled=1

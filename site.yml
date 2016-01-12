@@ -1,0 +1,6 @@
+---
+
+- hosts: brokers
+  sudo: yes
+  roles:
+    - repo/confluent
