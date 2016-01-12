@@ -3,4 +3,5 @@
 - hosts: brokers
   sudo: yes
   roles:
+    - java/openjdk8
     - repo/confluent
