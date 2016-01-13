@@ -1,0 +1,13 @@
+---
+
+- name: zookeeper config and upstart script
+  template: src=.{{ item }}.j2
+            dest={{ item }}
+            mode=0444 owner=root group=root
+  with_items:
+    - "{{ zookeeper_properties }}"
+    - /etc/init/zookeeper.conf
+  notify: bounce zookeeper
+
+- name: zookeeper service
+  service: name=zookeeper state=running enabled=yes

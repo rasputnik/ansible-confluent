@@ -1,0 +1,11 @@
+# zookeeper (Upstart unit)
+description Zookeeper
+
+start on stopped rc RUNLEVEL=[2345]
+stop on runlevel [06]
+
+exec /usr/bin/zookeeper-server-start {{ zookeeper_properties }}
+
+respawn
+respawn limit 10 10
+kill timeout 10

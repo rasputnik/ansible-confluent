@@ -6,3 +6,4 @@
     - java/openjdk8
     - repo/confluent
     - confluent
+    - confluent/zookeeper

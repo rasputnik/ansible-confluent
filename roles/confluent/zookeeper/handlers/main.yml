@@ -1,0 +1,4 @@
+---
+
+- name: bounce zookeeper
+  service: name=zookeeper state=restarted
