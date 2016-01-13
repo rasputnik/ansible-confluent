@@ -1,0 +1,13 @@
+---
+
+- name: kafka config and upstart script
+  template: src=.{{ item }}.j2
+            dest={{ item }}
+            mode=0444 owner=root group=root
+  with_items:
+    - "{{ kafka_properties }}"
+    - /etc/init/kafka.conf
+  notify: bounce kafka
+
+- name: kafka service
+  service: name=kafka state=running enabled=yes

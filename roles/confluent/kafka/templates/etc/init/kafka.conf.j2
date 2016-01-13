@@ -1,0 +1,11 @@
+# kafka (Upstart unit)
+description Kafka
+
+start on stopped rc RUNLEVEL=[2345]
+stop on runlevel [06]
+
+exec /usr/bin/kafka-server-start {{ kafka_properties }}
+
+respawn
+respawn limit 10 10
+kill timeout 10
