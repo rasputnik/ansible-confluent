@@ -1,0 +1,4 @@
+---
+
+# overrideable in inventory
+confluent_rpm: confluent-kafka-2.11.7

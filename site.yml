@@ -5,3 +5,4 @@
   roles:
     - java/openjdk8
     - repo/confluent
+    - confluent

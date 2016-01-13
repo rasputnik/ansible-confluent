@@ -1,0 +1,4 @@
+---
+
+- name: install {{ confluent_rpm }}
+  yum: name={{ confluent_rpm }} state=present
