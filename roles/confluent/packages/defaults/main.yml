@@ -1,4 +1,6 @@
 ---
 
 # overrideable in inventory
+#
+# installs zookeeper and kafka
 confluent_rpm: confluent-kafka-2.11.7
