@@ -1,0 +1,11 @@
+# schema-registry (Upstart unit)
+description schema-registry
+
+start on stopped rc RUNLEVEL=[2345]
+stop on runlevel [06]
+
+exec /usr/bin/schema-registry-start {{ schema_registry_properties }}
+
+respawn
+respawn limit 10 10
+kill timeout 10

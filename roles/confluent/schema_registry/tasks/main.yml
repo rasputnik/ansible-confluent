@@ -1,0 +1,13 @@
+---
+
+- name: schema-registry config and upstart script
+  template: src=.{{ item }}.j2
+            dest={{ item }}
+            mode=0444 owner=root group=root
+  with_items:
+    - "{{ schema_registry_properties }}"
+    - /etc/init/schema-registry.conf
+  notify: bounce schema-registry
+
+- name: schema-registry service
+  service: name=schema-registry state=running enabled=yes

@@ -8,3 +8,4 @@
     - confluent/packages
     - confluent/zookeeper
     - confluent/kafka
+    - confluent/schema_registry

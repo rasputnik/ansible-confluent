@@ -4,3 +4,6 @@
 #
 # installs zookeeper and kafka
 confluent_rpm: confluent-kafka-2.11.7
+
+# installs schema registry (pulls in '-common' and '-rest-utils')
+schema_registry_rpm: confluent-schema-registry-2.0.0
