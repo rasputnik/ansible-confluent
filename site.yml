@@ -5,7 +5,7 @@
   roles:
     - java/openjdk8
     - repo/confluent
-    - confluent/packages
-    - confluent/zookeeper
-    - confluent/kafka
-    - confluent/schema_registry
+    - packages
+    - zookeeper
+    - kafka
+    - schema_registry
