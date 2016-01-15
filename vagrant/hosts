@@ -1,5 +1,7 @@
+
+# node_id is used by zookeeper and kafka. should be numeric and unique.
 [brokers]
-broker1
+broker1 node_id=1
 
 [all:vars]
 # connection details
