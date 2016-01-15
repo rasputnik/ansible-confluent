@@ -23,3 +23,8 @@ maxClientCnxns=0
 {% for z in groups[zk_group] %}
 server.{{ hostvars[z].node_id }}={{ hostvars[z].inventory_hostname }}:2888:3888
 {% endfor %}
+
+# reconnect timeouts for cluster - see http://zookeeper.apache.org/doc/r3.1.2/zookeeperStarted.html
+tickTime=2000
+initLimit=5
+syncLimit=3
