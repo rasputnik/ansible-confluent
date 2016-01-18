@@ -3,6 +3,7 @@
 - hosts: brokers
   sudo: yes
   roles:
+    - os/hostsfix
     - java/openjdk8
     - repo/confluent
     - packages
