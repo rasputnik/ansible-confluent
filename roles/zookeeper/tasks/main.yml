@@ -1,5 +1,15 @@
 ---
 
+- name: zookeeper folder
+  file: name=/var/lib/zookeeper state=directory
+        mode=0755 owner=root group=root
+
+- name: zookeeper myid file
+  template: src=var/lib/zookeeper/myid.j2
+            dest=/var/lib/zookeeper/myid
+            mode=0444 owner=root group=root
+  notify: bounce zookeeper
+
 - name: zookeeper config and upstart script
   template: src=.{{ item }}.j2
             dest={{ item }}
