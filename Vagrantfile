@@ -6,9 +6,9 @@
 # would love to have this read vagrant/hosts directly.
 
 hosts = [
-  {:name => "broker1", :ip => "10.200.10.10", :ram => 1900},
-  {:name => "broker2", :ip => "10.200.10.20", :ram => 1900},
-  {:name => "broker3", :ip => "10.200.10.30", :ram => 1900},
+  {:name => "broker1", :ip => "10.20.10.10", :ram => 1900},
+  {:name => "broker2", :ip => "10.20.10.20", :ram => 1900},
+  {:name => "broker3", :ip => "10.20.10.30", :ram => 1900},
 ]
 
 Vagrant.configure("2") do |config|
