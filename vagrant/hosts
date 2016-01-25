@@ -12,3 +12,6 @@ ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
 
 # name of above group holding our zookeepers
 zk_group=brokers
+
+# uncomment to setup yum  if needed (see 'roles/proxy' for detail)
+# http_proxy=http://yourproxy:3128
