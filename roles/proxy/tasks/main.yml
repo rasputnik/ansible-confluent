@@ -1,0 +1,57 @@
+---
+
+# set_fact sets a global dict - called 'proxy_env' -
+# to use on any task that may need external access
+#
+# how to use it
+# =============
+#
+# 1. set an inventory var. called 'http_proxy' if you need a proxy
+#
+#    http_proxy=http://proxy:8080/
+#
+#    (skip this step if you don't need one, everything will "Just Work"™.
+#
+#      If you're using a 'default on' proxy inventory offsite, you can
+#      pass '-e http_proxy=' to disable it.
+#    )
+#
+#
+# 2. load this role on hosts that might need a proxy
+#
+#    ( probably '[all]' )
+#
+#
+# 3. add an 'environment' clause on any task (npm/gem/get_url/...)
+#    that needs to get to the internet
+#
+#    - name: install npm-hashring
+#      npm: name=hashring global=no
+#           version=3.0.0
+#      environment: proxy_env
+#
+
+# define a 'stub' global so it's never Nil
+- name: stub proxy_env dict
+  set_fact:
+    proxy_env:
+      useproxy: no
+
+- name: update proxy_env dict if we have a http_proxy var.
+  set_fact:
+    proxy_env:
+      http_proxy: "{{http_proxy}}"
+      https_proxy: "{{http_proxy}}"
+      ftp_proxy: "{{http_proxy}}"
+  when: http_proxy is defined and http_proxy != ""
+
+# next 2 tasks edit yum.conf, adding or stripping 'proxy='
+- name: add yum.conf 'proxy' setting if http_proxy is set
+  lineinfile: dest=/etc/yum.conf regexp="^proxy"
+              line="proxy={{http_proxy}}" state=present
+  when: http_proxy is defined and http_proxy != ""
+
+- name: remove yum.conf 'proxy' setting if http_proxy is set
+  lineinfile: dest=/etc/yum.conf regexp="^proxy" 
+              state=absent
+  when: http_proxy is not defined or http_proxy == ""

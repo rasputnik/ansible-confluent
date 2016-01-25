@@ -1,5 +1,7 @@
 Confluent.io cluster on centos 6.
 
+Tested on Ansible 1.8.x.
+
 Cluster of CentOS 6.x nodes. Each runs:
 
 * a zookeeper
@@ -19,3 +21,9 @@ See **vagrant.md** for Vagrant instructions.
     ansible-playbook -i vagrant/ site.yml
 
 Then see **USAGE.md**.
+
+# proxy support
+
+If you need yum to install via a proxy, set a *http_proxy* var. either
+on the ansible command line or in an inventory file (see vagrant/hosts for example)
+

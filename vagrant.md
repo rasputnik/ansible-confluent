@@ -2,7 +2,6 @@
 
 * Virtualbox 5
 * vagrant
-* Ansible 1.9.x
 * the vagrant hostmanager plugin (to edit /etc/hosts and fix name resolution)
 
 # install
